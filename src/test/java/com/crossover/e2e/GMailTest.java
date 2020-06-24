@@ -52,7 +52,8 @@ public class GMailTest extends TestCase{
         driver.findElement(By.id("passwordNext")).click();
 
         //compose
-        WebElement composeElement = driver.findElement(By.xpath("//*[@role='button' and @class='T-I J-J5-Ji T-I-KE L3']"));
+        //WebElement composeElement = driver.findElement(By.xpath("//*[@role='button' and @class='T-I J-J5-Ji T-I-KE L3']"));
+        WebElement composeElement = driver.findElement(By.xpath("//*[@role='button' and contains(text(),'Compose')]"));
         composeElement.click();    
 
         //fill send to
@@ -75,15 +76,22 @@ public class GMailTest extends TestCase{
         //send
         driver.findElement(By.xpath("//*[@role='button' and text()='Send']")).click(); 
         
+        Thread.sleep(2000);
+        
         //change to social inbox
         driver.findElement(By.xpath("//div[@data-tooltip='Messages from social networks, media-sharing sites, online dating services, and other social websites.']")).click();
-        
+
+        Thread.sleep(2000);
+       
         //open email
         driver.findElement(By.xpath(String.format("//div[@role='link']/div/div//span[text()='%s']", emailSubject))).click();
+        //driver.findElement(By.xpath(String.format("//span[text()='%s']", emailSubject))).click();
+        
+        Thread.sleep(2000);
         
         //start it
         driver.findElement(By.xpath("//span[@class='T-KT']")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         
         //check labels
 		driver.findElement(By.xpath("(//div[@class='T-I J-J5-Ji T-I-Js-Gs mA mw T-I-ax7 L3']//div[@class='asa'])[2]")).click();

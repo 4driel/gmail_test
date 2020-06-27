@@ -119,6 +119,9 @@ public class GMailTest extends TestCase{
         	System.out.println("Body doesn't match.");
         }
         
+        //delete email
+        driver.findElement(By.xpath("(//div[@class='T-I J-J5-Ji nX T-I-ax7 T-I-Js-Gs mA']//div[@class='asa'])[2]")).click();
+        
         Thread.sleep(1000);
     }
 }
